@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Face Tracking Web Camera Demo</title>
+
+	<link rel="stylesheet" href="./common/css/normalize.css">
+	<link rel="stylesheet" href="./common/css/common.css">
+	<!-- <link rel="stylesheet" href="css/index.css"> -->
+  <style>
+    #inner {
+      max-width: 500px;
+    }
+    
+    #drawArea {
+      position: relative;
+      /* visibility: hidden; */
+    }
+    
+    #drawArea canvas {
+      vertical-align: top;
+    }
+    
+    #video {
+      width: 100%;
+      height: auto;
+    }
+    
+    #ui {
+      margin: 20px 0 0;
+    }
+    
+    #ui input {
+      margin: 0 0 10px;
+    }
+
+    .count-area {
+      color: white;
+      font-size: 20px;
+      height: 48px;
+      min-width: 110px;
+      line-height: 48px;
+      position: fixed;
+      left: 80px;
+      padding: 0 10px;
+      background-color: rgba(0,0,0,.5);
+      z-index: 100;
+    }
+  </style>
+
+</head>
+<body>
+<div>
+  <div class="count-area">count：<span id="blinkCount">0</span></div>
+  <div>
+    <video src="./media/sample.mp4" type="video/mp4" controls muted autoplay playsinline loop id="video">
+      <p>videoタグがサポートされていません。</p>
+    </video>
+  </div>
+	<div id="inner">
+    <div id="ui">
+      <p id="log"></p>
+    </div>
+		<div id="drawArea">
+			<video id="inputVideo" autoplay playsinline></video>
+      <canvas id="wireframe"></canvas>
+		</div>
+	</div>
+</div>
+<!-- <script src="javascripts/clmtrackr.js"></script> -->
+<script src="./common/js/stats.min.js"></script>
+<script src="./common/js/clmtrackr.min.js"></script>
+<script src="./common/js/model/model_pca_20_svm.js"></script>
+<script defer src="./test.js"></script>
+</body>
+</html>
