@@ -1,11 +1,11 @@
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
-  '/',
-  '/common/css/common.css',
-  '/common/css/normalize.css',
-  '/common/js/clmtrackr.min.js',
-  '/common/js/stats.min.js',
-  '/common/js/model/model_pca_20_svm.js',
+  './',
+  './common/css/common.css',
+  './common/css/normalize.css',
+  './common/js/clmtrackr.min.js',
+  './common/js/stats.min.js',
+  './common/js/model/model_pca_20_svm.js',
 ];
 
 self.addEventListener('install', function(event) {
