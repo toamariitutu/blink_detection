@@ -1,0 +1,32 @@
+{
+    "dir": "ltr",
+    "lang": "Japanese",
+    "name": "Blink Detection",
+    "scope": "/",
+    "display": "standalone",
+    "start_url": "./index.html",
+    "short_name": "BlinkDetection",
+    "theme_color": "#0b2133",
+    "description": "",
+    "orientation": "any",
+    "background_color": "#0b2133",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+          "src": "images/favicon-32x32.png",
+          "type": "image/png",
+          "sizes": "32x32"
+        },
+        {
+            "src": "images/android-chrome-192x192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "images/android-chrome-256x256.png",
+            "type": "image/png",
+            "sizes": "256x256"
+        }
+    ]
+}
