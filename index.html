@@ -71,21 +71,10 @@
 	</div>
 </div>
 <!-- <script src="javascripts/clmtrackr.js"></script> -->
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js').then(function(registration) {
-      // 登録成功
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-      // 登録失敗 :(
-      console.log('ServiceWorker registration failed: ', err);
-    });
-  }
-</script>
 <script src="./common/js/stats.min.js"></script>
 <script src="./common/js/clmtrackr.min.js"></script>
 <script src="./common/js/model/model_pca_20_svm.js"></script>
-<script defer src="./sw.js"></script>
-<script defer src="./test.js"></script>
+<script defer src="./script/main.js"></script>
+<script defer src="./script/test.js"></script>
 </body>
 </html>

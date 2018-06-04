@@ -1,4 +1,4 @@
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'my-site-cache-v0';
 var urlsToCache = [
   './',
   './common/css/common.css',
@@ -6,6 +6,8 @@ var urlsToCache = [
   './common/js/clmtrackr.min.js',
   './common/js/stats.min.js',
   './common/js/model/model_pca_20_svm.js',
+  './script/main.js',
+  './script/test.js',
 ];
 
 self.addEventListener('install', function(event) {
@@ -16,6 +18,25 @@ self.addEventListener('install', function(event) {
         console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
+  );
+});
+
+self.addEventListener('activate', function(event) {
+
+  var cacheWhitelist = [CACHE_NAME];
+
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      return Promise.all(
+        cacheNames.map(function(cacheName) {
+          // ホワイトリストにないキャッシュ(古いキャッシュ)は削除する
+          if (cacheWhitelist.indexOf(cacheName) === -1) {
+              console.log('Delete old cashes!', cacheName)
+              return caches.delete(cacheName);
+          }
+        })
+      );
+    })
   );
 });
 
@@ -59,22 +80,4 @@ self.addEventListener('fetch', function(event) {
         );
       })
     );
-});
-
-self.addEventListener('activate', function(event) {
-
-  var cacheWhitelist = ['pages-cache-v1', 'blog-posts-cache-v1'];
-
-  event.waitUntil(
-    caches.keys().then(function(cacheNames) {
-      return Promise.all(
-        cacheNames.map(function(cacheName) {
-          console.log('古いキャッシュを削除', cacheName)
-          if (cacheName !== CACHE_NAME) {
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
-  );
 });
